@@ -1,0 +1,18 @@
+{
+  "name": "bbdxumuzi-challenge",
+  "version": "1.0.0",
+  "description": "BBD has tasked the online Umuzi learners to create a hosted web CV which also allows the user to view the weather and latest news.",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve index.html",
+    "build": "npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liam Henry",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.3",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
