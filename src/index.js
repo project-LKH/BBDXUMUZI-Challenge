@@ -1,27 +1,24 @@
 const { default: axios } = require("axios");
+(async () => {
+  const weatherURL = "https://api.weatherapi.com/v1/current.json";
 
-async function createWeatherComponent() {
-  const fetchWeather = async () => {
+  const fetchWeather = async () =>
+    await axios.get(weatherURL, {
+      params: { key: process.env.WEATHER_KEY, q: "auto:ip" },
+    });
 
-      const data = await axios.get(
-        "https://api.weatherapi.com/v1/current.json",
-        {
-          params: { key: process.env.WEATHER_KEY, q: "auto:ip" },
-        }
-      );
-      return formatWeather(data.data);
-  };
+  const formatWeather = (data) => [
+    data.location.region,
+    data.location.country,
+    data.current.temp_c,
+    data.current.condition,
+  ];
 
-  const formatWeather = (data) => {
-    const [region, country] = [data.location.region, data.location.country];
-    const [temp, conditions] = [data.current.temp_c, data.current.condition];
+  const { data } = await fetchWeather();
 
-    return [region, country, temp, conditions];
-  };
+  const [region, country, temp, conditions] = formatWeather(data);
 
-  const [region, country, temp,conditions] = await fetchWeather();
-
-  document.getElementById("weather").innerHTML=(`<div id="weather-content">
+  document.getElementById("weather").innerHTML = `<div id="weather-content">
     <img src="${conditions.icon}" alt="weather-img" >
   <ul>
   <li>${region}</li>
@@ -29,8 +26,6 @@ async function createWeatherComponent() {
   <li>${temp} degrees celsius</li>
   <li>${conditions.text}</li>
   </ul>
-  </div>`);
+  </div>`;
   return;
-}
-
-createWeatherComponent();
+})();
