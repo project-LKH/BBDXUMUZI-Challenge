@@ -4,7 +4,7 @@ const { default: axios } = require("axios");
 
   const fetchWeather = async () =>
     await axios.get(weatherURL, {
-      params: { key: process.env.WEATHER_KEY, q: "auto:ip" },
+      params: { key: secrets.WEATHER_KEY, q: "auto:ip" },
     });
 
   const formatWeather = (data) => [
