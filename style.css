@@ -6,25 +6,56 @@
   color: white;
   text-wrap: balance;
   list-style: none;
+  font-family: serif;
+  word-wrap: break-word;
 }
 
 header {
-  display: grid;
+  display: flex;
   grid-auto-flow: column;
-  background-color: rgb(14, 84, 131);
-  height: max-content;
-  text-align: center;
+  background-color: black;
+  height: 4em;
+  border-bottom: 2px solid white;
+  padding-left: 1em;
   font-weight: bold;
+  align-content: center;
 }
 
+#selfie {
+  margin-top: 0.5em;
+  flex: 1;
+  height: 80%;
+  border-radius: 50%;
+  /* height: 3em; */
+  width: 100%;
+  border: 2px solid white;
+  background-color: red;
+}
+h1 {
+  padding-left: 1em;
+  display: grid;
+  place-self: start;
+  height: 100%;
+  align-content: center;
+}
 body {
   background-color: rgb(13, 13, 44);
   overflow-x: hidden;
+  background-color: #111111;
+  background-image: linear-gradient(
+    32deg,
+    rgba(8, 8, 8, 0.74) 30px,
+    transparent
+  );
+  background-size: 60px 60px;
+  background-position: -5px -5px;
 }
 main {
+    width:90%;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding-left: 1em;
+  padding-top: 1em;
   gap: 1em;
 }
 
