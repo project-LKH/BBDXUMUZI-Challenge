@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
@@ -6,4 +7,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.WEATHER_KEY": JSON.stringify(
+        process.env.WEATHER_KEY
+      ),
+    }),
+  ],
 };
