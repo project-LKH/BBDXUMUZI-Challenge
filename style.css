@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  color: white;
+  text-wrap: balance;
+  list-style: none;
+}
+
+header {
+  display: grid;
+  grid-auto-flow: column;
+  background-color: rgb(14, 84, 131);
+  height: max-content;
+  text-align: center;
+  font-weight: bold;
+}
+
+body {
+  background-color: rgb(13, 13, 44);
+  overflow-x: hidden;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+}
+
+#about,
+#education {
+  display: grid;
+  gap: 0.5rem;
+}
+ul {
+  padding-top: 0.5em;
+}
+p {
+  width: auto;
+  height: max-content;
+}
+.ex-sec {
+  display: grid;
+}
+
+#experience {
+  display: grid;
+  gap: 1em;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+h6,
+h4 {
+  font-style: italic;
+}
