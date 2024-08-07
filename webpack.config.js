@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new webpack.DefinePlugin({ 
       "process.env.WEATHER_KEY": JSON.stringify(process.env.WEATHER_KEY),
       "process.env.NEWS_KEY": JSON.stringify(process.env.NEWS_KEY),
     }),
