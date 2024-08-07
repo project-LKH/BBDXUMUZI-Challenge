@@ -29,3 +29,37 @@ const { default: axios } = require("axios");
   </div>`;
   return;
 })();
+
+(async () => {
+  const newsURL = "https://newsdata.io/api/1/latest";
+
+  const fetchNews = async () =>
+    await axios.get(newsURL, {
+      params: {
+        language: "en",
+        apiKey: process.env.NEWS_KEY,
+      },
+    });
+
+  const formatNews = (data) =>
+    data.results.map((result) => [result.title, result.link]);
+
+  const { data } = await fetchNews();
+
+  const articles = formatNews(data);
+
+  document.getElementById("news").innerHTML =
+    `<div id="news-content"><h2>News Feed</h2>
+  <ul id="news-articles">
+  ${articles
+    .map(
+      (article) => `<li class="article">
+    <h3>${article[0]}</h3>
+    <a href="${article[1]}">Read more...</a>
+    </li>`
+    )
+    .join(" ")}
+  </ul>
+  </div>`;
+  return;
+})();
