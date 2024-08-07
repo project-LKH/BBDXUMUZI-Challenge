@@ -10,6 +10,20 @@
   word-wrap: break-word;
 }
 
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+a {
+  color: blue;
+  text-decoration: none;
+  display: grid;
+  place-content: center;
+}
+
 header {
   display: flex;
   grid-auto-flow: column;
@@ -53,14 +67,15 @@ body {
 main {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(2 ,1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 #cv {
   width: 90%;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding-left: 1em;
+  padding-top: 1em;
   gap: 1em;
 }
 
@@ -100,20 +115,16 @@ h4 {
 }
 
 #features {
-  padding:1em;
   display: grid;
-  justify-content: center;
+  place-content: center;
 }
 
 #weather {
   display: grid;
   place-content: center;
-  background-color: #111111ce;
   padding-top: 1em;
   height: max-content;
-  width: 90%;
-  border: 2px solid white;
-  border-radius: 15px;
+  width: 100%;
 }
 
 @media screen and (max-width: 960px) {
@@ -121,11 +132,34 @@ h4 {
     grid-auto-flow: row;
     grid-template-columns: 1fr;
   }
-
 }
-#weather-content{
-  display:grid;
+
+#weather-content {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   place-content: center;
+}
 
+#news-content {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+#news-articles {
+  display: grid;
+  gap: 0.5em;
+  place-content: center;
+}
+h3 {
+  height: min-content;
+}
+.article {
+  background-color: #111111;
+  width: 90%;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid silver;
+  place-self: center;
 }
