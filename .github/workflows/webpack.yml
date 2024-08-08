@@ -30,10 +30,16 @@ jobs:
         npm install
         npx webpack
         echo ${{ env.WEATHER_KEY}}
-        
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with: 
-        GITHUB_TOKEN: ${{secrets.ACCESS_TOKEN}}
-        BRANCH: gh-pages
-        FOLDER: build
+        steps:
+        - uses: actions/checkout@v3
+        - uses: infovista-opensource/vars-to-env-action@v1
+        with:
+        secrets: ${{ toJSON(secrets) }}
+        - run: echo "Value of MY_SECRET: $WEATHER_KEY"
+    
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with: 
+          GITHUB_TOKEN: ${{secrets.ACCESS_TOKEN}}
+          BRANCH: gh-pages
+          FOLDER: build
