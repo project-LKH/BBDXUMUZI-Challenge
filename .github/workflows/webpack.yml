@@ -27,6 +27,10 @@ jobs:
           WEATHER_KEY: ${{ secrets.WEATHER_KEY }}
           NEWS_KEY: ${{ secrets.NEWS_KEY }}
       run: |
+        touch .env
+        echo ENV_VAR_1=$ENV_VAR_1 >> .env
+        echo ENV_VAR_2=$ENV_VAR_2 >> .env
         npm install
         npx webpack
+        npm run src/index.js
 
