@@ -26,10 +26,10 @@ jobs:
       run: |
         npm install
         npx webpack
+        echo ${{ env.MAVEN_VERSION }}
       env:
           WEATHER_KEY: ${{secrets.WEATHER_KEY}}
           NEWS_KEY: ${{secrets.NEWS_KEY}}
-          
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with: 
